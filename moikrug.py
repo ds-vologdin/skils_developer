@@ -30,6 +30,7 @@ def get_url_for_type_vacancies(type_vacancies: str = 'all') -> str:
     url_moikrug_dict = {
         'all': 'https://moikrug.ru/vacancies?page={}&type=all',
         'python': 'https://moikrug.ru/vacancies?page={}&skills%5B%5D=446&type=all',
+        'devops': 'https://moikrug.ru/vacancies?page={}&skills%5B%5D=378&type=all',
     }
     if type_vacancies not in url_moikrug_dict:
         type_vacancies = 'all'
@@ -59,7 +60,7 @@ def fetch_pages_moikrug(size: int = 10, category: str = 'all', is_no_async: bool
 def parse_vacancy_from_job_element(job_element):
     title_element = job_element.find('div', class_='title')
     date_element = job_element.find('span', class_='date')
-    specialization_element = job_element.find('div', class_='specialization')
+    specialization_element = job_element.find('div', class_='skills')
     specialization_skills_elements = specialization_element.find_all(
         'a', class_='skill'
     )

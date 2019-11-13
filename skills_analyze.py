@@ -21,7 +21,7 @@ def parse_argv():
 будут показаны все навыки. Поумолчанию --top-skills 20.'''
     )
     parser.add_argument(
-        '--category', choices=['all', 'python'], default='all',
+        '--category', choices=['all', 'python', 'devops'], default='all',
         help='''Параметр для сужения окна поиска'''
     )
     parser.add_argument(
